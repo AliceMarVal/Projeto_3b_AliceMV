@@ -1,0 +1,132 @@
+sudoku9x9(
+    A11,A12,A13,A14,A15,A16,A17,A18,A19,
+    A21,A22,A23,A24,A25,A26,A27,A28,A29,
+    A31,A32,A33,A34,A35,A36,A37,A38,A39,
+    A41,A42,A43,A44,A45,A46,A47,A48,A49,
+    A51,A52,A53,A54,A55,A56,A57,A58,A59,
+    A61,A62,A63,A64,A65,A66,A67,A68,A69,
+    A71,A72,A73,A74,A75,A76,A77,A78,A79,
+    A81,A82,A83,A84,A85,A86,A87,A88,A89,
+    A91,A92,A93,A94,A95,A96,A97,A98,A99):-
+    perm(A11,A12,A13,A14,A15,A16,A17,A18,A19),
+    perm(A21,A22,A23,A24,A25,A26,A27,A28,A29),
+    perm(A31,A32,A33,A34,A35,A36,A37,A38,A39),
+    perm(A41,A42,A43,A44,A45,A46,A47,A48,A49),
+    perm(A51,A52,A53,A54,A55,A56,A57,A58,A59),
+    perm(A61,A62,A63,A64,A65,A66,A67,A68,A69),
+    perm(A71,A72,A73,A74,A75,A76,A77,A78,A79),
+    perm(A81,A82,A83,A84,A85,A86,A87,A88,A89),
+    perm(A91,A92,A93,A94,A95,A96,A97,A98,A99),
+    
+    perm(A11,A21,A31,A41,A51,A61,A71,A81,A91),
+    perm(A12,A22,A32,A42,A52,A62,A72,A82,A92),
+    perm(A13,A23,A33,A43,A53,A63,A73,A83,A93),
+    perm(A14,A24,A34,A44,A54,A64,A74,A84,A94),
+    perm(A15,A25,A35,A45,A55,A65,A75,A85,A95),
+    perm(A16,A26,A36,A46,A56,A66,A76,A86,A96),
+    perm(A17,A27,A37,A47,A57,A67,A77,A87,A97),
+    perm(A18,A28,A38,A48,A58,A68,A78,A88,A98),
+    perm(A19,A29,A39,A49,A59,A69,A79,A89,A99),
+    prow(A11,A12,A13,A14,A15,A16,A17,A18,A19),
+    prow(A21,A22,A23,A24,A25,A26,A27,A28,A29),
+    prow(A31,A32,A33,A34,A35,A36,A37,A38,A39),
+    prow(A41,A42,A43,A44,A45,A46,A47,A48,A49),
+    prow(A51,A52,A53,A54,A55,A56,A57,A58,A59),
+    prow(A61,A62,A63,A64,A65,A66,A67,A68,A69),
+    prow(A71,A72,A73,A74,A75,A76,A77,A78,A79),
+    prow(A81,A82,A83,A84,A85,A86,A87,A88,A89),
+    prow(A91,A92,A93,A94,A95,A96,A97,A98,A99).
+
+prow(A,B,C,D,E,F,G,H,I):-write(A),write(' '),write(B),write(' '),write(C),write(' '),write(D),write(' '),write(E),write(' '),write(F),write(' '),write(G),write(' '),write(H),write(' '),write(I),nl.
+
+perm(A,B,C,D,E,F,G,H,I):-neq9(A,B,C,D,E,F,G,H,I),num(A),num(B),num(C),num(D),num(E),num(F),num(G),num(H),num(I).
+neq9(A,B,C,D,E,F,G,H,I):-neq(A,B),neq(A,C),neq(A,D),neq(A,E),neq(A,F),neq(A,G),neq(A,H),neq(A,I),
+                          neq(B,C),neq(B,D),neq(B,E),neq(B,F),neq(B,G),neq(B,H),neq(B,I),
+                          neq(C,D),neq(C,E),neq(C,F),neq(C,G),neq(C,H),neq(C,I),
+                          neq(D,E),neq(D,F),neq(D,G),neq(D,H),neq(D,I),
+                          neq(E,F),neq(E,G),neq(E,H),neq(E,I),
+                          neq(F,G),neq(F,H),neq(F,I),
+                          neq(G,H),neq(G,I),
+                          neq(H,I).
+num(1).
+num(2).
+num(3).
+num(4).
+num(5).
+num(6).
+num(7).
+num(8).
+num(9).
+
+neq(1,2).
+neq(1,3).
+neq(1,4).
+neq(1,5).
+neq(1,6).
+neq(1,7).
+neq(1,8).
+neq(1,9).
+neq(2,1).
+neq(2,3).
+neq(2,4).
+neq(2,5).
+neq(2,6).
+neq(2,7).
+neq(2,8).
+neq(2,9).
+neq(3,1).
+neq(3,2).
+neq(3,4).
+neq(3,5).
+neq(3,6).
+neq(3,7).
+neq(3,8).
+neq(3,9).
+neq(4,1).
+neq(4,2).
+neq(4,3).
+neq(4,5).
+neq(4,6).
+neq(4,7).
+neq(4,8).
+neq(4,9).
+neq(5,1).
+neq(5,2).
+neq(5,3).
+neq(5,4).
+neq(5,6).
+neq(5,7).
+neq(5,8).
+neq(5,9).
+neq(6,1).
+neq(6,2).
+neq(6,3).
+neq(6,4).
+neq(6,5).
+neq(6,7).
+neq(6,8).
+neq(6,9).
+neq(7,1).
+neq(7,2).
+neq(7,3).
+neq(7,4).
+neq(7,5).
+neq(7,6).
+neq(7,8).
+neq(7,9).
+neq(8,1).
+neq(8,2).
+neq(8,3).
+neq(8,4).
+neq(8,5).
+neq(8,6).
+neq(8,7).
+neq(8,9).
+neq(9,1).
+neq(9,2).
+neq(9,3).
+neq(9,4).
+neq(9,5).
+neq(9,6).
+neq(9,7).
+neq(9,8).
